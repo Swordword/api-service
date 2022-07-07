@@ -1,24 +1,26 @@
 {
-  "name": "rollup-starter-lib",
-  "version": "1.0.0",
-  "main": "dist/how-long-till-lunch.cjs.js",
-  "module": "dist/how-long-till-lunch.esm.js",
-  "browser": "dist/how-long-till-lunch.umd.js",
-  "dependencies": {
-    "ms": "^2.0.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "rollup": "^1.29.0"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "node test/test.js",
-    "pretest": "npm run build"
-  },
-  "files": [
-    "dist"
-  ]
+    "name": "api-service",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "yarn run clean && yarn run compile",
+        "clean": "rimraf -rf ./dist",
+        "compile": "rollup -c rollup.config.ts",
+        "prepublishOnly": "yarn run build",
+        "test": "npm run build && jest --config jest.config.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "4.7.4",
+        "rollup": "2.75.7",
+        "rollup-plugin-typescript2": "0.32.1",
+        "rimraf": "3.0.2",
+        "@rollup/plugin-node-resolve": "13.3.0",
+        "rollup-plugin-dts": "4.2.2"
+    }
 }
