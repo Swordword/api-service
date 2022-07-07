@@ -1,0 +1,26 @@
+{
+    "name": "api-service",
+    "version": "0.0.1",
+    "description": "",
+    "private": true,
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "yarn run clean && yarn run compile",
+        "clean": "rimraf -rf ./dist",
+        "compile": "rollup -c rollup.config.ts",
+        "prepublishOnly": "yarn run build",
+        "test": "npm run build && jest --config jest.config.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "4.7.4",
+        "rollup": "2.75.7",
+        "rollup-plugin-typescript2": "0.32.1",
+        "rimraf": "3.0.2",
+        "@rollup/plugin-node-resolve": "13.3.0",
+        "rollup-plugin-dts": "4.2.2"
+    }
+}
